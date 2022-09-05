@@ -1,4 +1,4 @@
-package cruzeiroDao;
+package cruzeiroController;
 
 import java.net.URL;
 import java.sql.Connection;

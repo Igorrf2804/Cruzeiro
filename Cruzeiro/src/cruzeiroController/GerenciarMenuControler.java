@@ -1,4 +1,4 @@
-package cruzeiroDao;
+package cruzeiroController;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 
-public class RegistrarEventoControler implements Initializable {
+public class GerenciarMenuControler implements Initializable {
 	
 	private Connection conn;
 	private PreparedStatement ps;

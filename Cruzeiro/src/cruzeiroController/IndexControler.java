@@ -1,11 +1,11 @@
-package cruzeiroDao;
+package cruzeiroController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 
-public class LoginControler implements Initializable {
+public class IndexControler implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
