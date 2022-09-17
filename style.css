@@ -25,6 +25,20 @@ header{
 
 }
 
+.desc{
+    position:absolute;
+    bottom: 40%;
+    margin-bottom: -30%;
+    width: 90%;
+    text-align: center;
+    color: white;
+    background-color: #595959;
+    opacity: 80%;
+    transition: 1.2s;
+}
+
+
+
 .card{
     margin-bottom: 3%;
     position: relative;
@@ -33,6 +47,7 @@ header{
     cursor: pointer;
     height: 400px;
     width: 400px;
+    overflow: hidden;
 }
 
 
@@ -42,6 +57,8 @@ header{
     transform: translateX(-5px);
     filter:brightness(50%);
 }
+
+
 button{
     display: block;
     position: absolute;
@@ -93,6 +110,13 @@ button{
     text-shadow: .2rem .3rem .2px rgba(0, 0, 0, 0.6);
     opacity: 95%;
     animation: moveBanner 1s 0.7s forwards;
+}
+
+audio{
+position: absolute;
+    top: 5%;
+    right: 0%;
+    opacity: 60%;
 }
 
 @keyframes moveBanner {

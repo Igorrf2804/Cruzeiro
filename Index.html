@@ -28,37 +28,52 @@
             <div class="cards">
                 <div class="card">
                     <img src="/imagens/depositphotos_34462921-stock-illustration-beach-party-flyer-for-your.jpg" alt="">
-                    <p></p>
-                    <button>Test</button>
+                    <p id="card" class="desc">No evento de entrada teremos uma festa de boas vindas a todos os convidados maiores de 18 anos, com djs da nossa casa noturna, passaporte gold é gratuito, já o silver a entrada custa R$50,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 <div class="card">
                     <img src="/imagens/Flyer-de-festa-eletronica-para-editar.jpg" alt="">
-                    <button>Test</button>
+                    <p id="card" class="desc">Nossa festa neon te aguarda para apimentar sua segunda noite, venha com camiseta branca, disponibilizaremos tintas e canetas neon pra todos se divertirem, valor de entrada para o silver R$80,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 <div class="card">
-                    <img src="/imagens/vintageculture-janeiro2020_77268.jpg" alt="">
-                    <button>Test</button>
+                    <img src="/imagens/FJY0f3bWYAUn2GM.jpg" alt="">
+                    <p id="card" class="desc">Whindersson Nunes pede uma revanche ao Popó  e essa luta sera excusiva no caes do nosso cruzeiro, com direito a apostas e ring para que todos se divirtam, este evente é para maior de 16 anos, valor de entrada para o silver R$180,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 <div class="card">
-                    <img src="/imagens/flyer@3x.jpg" alt="">
-                    <button>Test</button>
+                    <img src="/imagens/148ab9e010af6c100dae4ac0c3f8db0d.jpg" alt="">
+                    <p id="card" class="desc"> Nosso maior nome da música eletronica brasieira, VINTAGE CULTURE te chama pra curtir mais de 12 horas de muita música boa, trazendo toda a sua carreira em grandes músicas neste evento gigantesco, valor de entrada para o silver R$300,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 <div class="card">
                     <img src="/imagens/3f185c100936871.Y3JvcCwxMDgwLDg0NCwwLDI1MQ.jpg" alt="">
-                    <button>Test</button>
+                    <p id="card" class="desc">Nesse evento para nossas crianças, teremos diversas atividades, como caçar águas vivas, um labirinto para chegar a abacaxi house, e muito hamburguer de Siri, traga seu filho para curtir, valor de entrada para o silver R$30,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 <div class="card">
                     <img src="/imagens/e-flyer-insta-facebook.png" alt="">
-                    <button>Test</button>
+                    <p id="card" class="desc">Nesse evnto GEEK teremos diversas atrações para os adolescentes a bordo, como o próprio cartaz diz por si só! Não perca! Vallor de entrada para o siver é de R$50,00</p>
+                    <button onclick="desc()">Comprar</button> 
                 </div>
                 
             </div>
-          
+          <audio preload= "auto" autoplay controls >  
+            <source src="/musica/eminem.wav" type="audio/mpeg">
+            <source src="/musica/eminem.wav" type="audio/ogg">
+            <source src="/musica/eminem.wav" type="audio/wav">
+
+          </audio>
         </header>
 
     </div>
 
-
+    <script>
+        function desc(){
+        let x = document.getElementById('card')
+        x.style.bottom = '50%'
+        }
+    </script>
 </body>
 
 </html>
