@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Agenda</title>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="img">
+                <img src="" alt="">
+            </div>
+            <div class="banner">
+                <h1>Agendamento Saída e Retorno Navio </h1>
+                <p>Saída Gold free e saída Silver R$30,00 a diária.</p>
+                <p>20 lugares por barco, sendo 10 reservado para gold</p>
+            </div>
+            <div class="informs">
+                <h2>Praia Ilha grande</h2>
+                <p>Saída</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+
+                    <p id="card" class="desc">09:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for (i = 0; i < frmChk.length; i++) {
+                                    if (frmChk[i].checked) {
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                    </form>
+
+                    <button>comprar</button>
+
+                </div>
+                <div class="card">
+
+                    <p id="card" class="desc">09:30</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for (i = 0; i < frmChk.length; i++) {
+                                    if (frmChk[i].checked) {
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                    </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <img src="" alt="">
+                    <p id="card" class="desc">09:45</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <img src="" alt="">
+                    <p id="card" class="desc">10:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <img src="" alt="">
+                    <p id="card" class="desc">10:15</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">10:30</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">11:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">11:15</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">11:30</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">11:45</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">12:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">12:15</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">12:30</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">12:45</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">13:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+                <div class="card">
+                    <p id="card" class="desc">13:00</p>
+                    <form>
+                        <div>
+                            <p>Selecione seu passaporte</p>
+                        </div>
+                        <div>
+                            <label for="silver">Silver</label>
+                            <input type="checkbox" id="silver" name="silver" value="1" checked>
+                        </div>
+                        <div>
+                            <label for="gold">Gold</label>
+                            <input type="checkbox" id="gold" name="gold" value="2">
+                        </div>
+                        <p id="resultado"></p>
+                        <script>
+                            document.getElementById("frmCheckbox").onclick = function () {
+                                let frmChk = document.getElementById('frmCheckbox').elements;
+                                let resultado = "";
+                                for(i = 0; i < frmChk.length; i++){
+                                    if(frmChk[i].checked){
+                                        resultado = resultado + frmChk[i].value + " ";
+                                    }
+                                }
+                                document.getElementById("resultado").innerHTML = resultado;
+                                resultado;
+                            };
+                        </script>
+                     </form>
+                    <button>comprar</button>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+    </div>
+    </div>
+    </div>
+
+
+    </header>
+</body>
+
+</html>
