@@ -1,2 +1,2 @@
 # Cruzeiro
-trabalho de criar um sistema para cruzeiro da aula
+Trabalho para de criar um sistema para cruzeiro

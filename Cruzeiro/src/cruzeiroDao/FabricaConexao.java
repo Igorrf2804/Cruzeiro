@@ -10,7 +10,7 @@ public class FabricaConexao {
 	public static Connection abrirConexao() throws SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			 return DriverManager.getConnection("jdbc:mysql://localhost:3306/prego?useTimezone=true&serverTimezone=UTC", "root", "");
+			 return DriverManager.getConnection("jdbc:mysql://localhost:3306/blue_route?useTimezone=true&serverTimezone=UTC", "root", "c6-alN6zd");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Erro ao conectar com Banco de Dados");
 		}

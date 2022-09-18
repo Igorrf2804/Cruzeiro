@@ -63,7 +63,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <TextField layoutX="37.0" layoutY="39.0" prefHeight="25.0" prefWidth="334.0" text="Entre aqui com o nome da rota" />
-                  <Button layoutX="415.0" layoutY="39.0" mnemonicParsing="false" />
+                  <Button layoutX="415.0" layoutY="39.0" mnemonicParsing="false" text="Pesquisar" />
                </children></AnchorPane>
         </items>
       </SplitPane>

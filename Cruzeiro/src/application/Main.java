@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 
 public class Main extends Application {
 	
-	public static Stage stage;
+	private static Stage stage;
 	private static Scene loginScene;	
 	private static Scene registrarRotaScene;
 	private static Scene registrarFuncionarioScene;
@@ -22,7 +22,9 @@ public class Main extends Application {
 	private static Scene indexScene;
 	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage)  {
+		
+		stage = primaryStage;
 		try {
 			
 			Parent fxmlLogin = FXMLLoader.load(getClass().getResource("cruzeiroView/Login.fxml"));
@@ -59,10 +61,10 @@ public class Main extends Application {
 			registrarRotaScene = new Scene(fxmlRegistrarRota);
 			
 			
-			stage.setTitle("Exemplo00");
+			primaryStage.setTitle("Exemplo00");
 			
-			stage.setScene(loginScene);
-			stage.show();
+			primaryStage.setScene(loginScene);
+			primaryStage.show();
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
