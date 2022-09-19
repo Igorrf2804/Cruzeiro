@@ -3,6 +3,9 @@ package application;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -27,44 +30,45 @@ public class Main extends Application {
 		stage = primaryStage;
 		try {
 			
-			Parent fxmlLogin = FXMLLoader.load(getClass().getResource("cruzeiroView/Login.fxml"));
+			Parent fxmlLogin = FXMLLoader.load(getClass().getResource("/cruzeiroView/Login.fxml"));
 			loginScene = new Scene(fxmlLogin);
 			
-			Parent fxmlIndex = FXMLLoader.load(getClass().getResource("cruzeiroView/Index.fxml"));
+			Parent fxmlIndex = FXMLLoader.load(getClass().getResource("/cruzeiroView/Index.fxml"));
 			indexScene = new Scene(fxmlIndex);
 			
-			Parent fxmlMenu = FXMLLoader.load(getClass().getResource("cruzeiroView/GerenciarMenu.fxml"));
+			Parent fxmlMenu = FXMLLoader.load(getClass().getResource("/cruzeiroView/GerenciarMenu.fxml"));
 			menuScene = new Scene(fxmlMenu);
 			
-			Parent fxmlEvento = FXMLLoader.load(getClass().getResource("cruzeiroView/GerenciarEvento.fxml"));
+			Parent fxmlEvento = FXMLLoader.load(getClass().getResource("/cruzeiroView/GerenciarEvento.fxml"));
 			eventoScene = new Scene(fxmlEvento);
 			
-			Parent fxmlCliente = FXMLLoader.load(getClass().getResource("cruzeiroView/GerenciarCliente.fxml"));
+			Parent fxmlCliente = FXMLLoader.load(getClass().getResource("/cruzeiroView/GerenciarCliente.fxml"));
 			clienteScene = new Scene(fxmlCliente);
 			
-			Parent fxmlFuncionario = FXMLLoader.load(getClass().getResource("cruzeiroView/GerenciarFuncionario.fxml"));
+			Parent fxmlFuncionario = FXMLLoader.load(getClass().getResource("/cruzeiroView/GerenciarFuncionario.fxml"));
 			funcionarioScene = new Scene(fxmlFuncionario);
 			
-			Parent fxmlRota = FXMLLoader.load(getClass().getResource("cruzeiroView/GerenciarRota.fxml"));
+			Parent fxmlRota = FXMLLoader.load(getClass().getResource("/cruzeiroView/GerenciarRota.fxml"));
 			rotaScene = new Scene(fxmlRota);
 			
-			Parent fxmlRegistrarMenu = FXMLLoader.load(getClass().getResource("cruzeiroView/RegistrarMenu.fxml"));
+			Parent fxmlRegistrarMenu = FXMLLoader.load(getClass().getResource("/cruzeiroView/RegistrarMenu.fxml"));
 			registrarMenuScene = new Scene(fxmlRegistrarMenu);
 			
-			Parent fxmlRegistrarEvento = FXMLLoader.load(getClass().getResource("cruzeiroView/RegistrarEvento.fxml"));
-			registrarEventoScene = new Scene(fxmlRegistrarEvento);
 			
-			Parent fxmlRegistrarFuncionario = FXMLLoader.load(getClass().getResource("cruzeiroView/RegistrarFuncionario.fxml"));
+			Parent fxmlRegistrarFuncionario = FXMLLoader.load(getClass().getResource("/cruzeiroView/RegistrarFuncionario.fxml"));
 			registrarFuncionarioScene = new Scene(fxmlRegistrarFuncionario);
 			
-			Parent fxmlRegistrarRota = FXMLLoader.load(getClass().getResource("cruzeiroView/RegistrarRota.fxml"));
-			registrarRotaScene = new Scene(fxmlRegistrarRota);
 			
-			
-			primaryStage.setTitle("Exemplo00");
+			primaryStage.setTitle("Blue Route");
 			
 			primaryStage.setScene(loginScene);
 			primaryStage.show();
+			primaryStage.centerOnScreen();
+			
+			primaryStage.setOnCloseRequest(event -> {
+				event.consume();
+				sair(primaryStage);
+				});
 		} 
 		catch(Exception e) {
 			e.printStackTrace();
@@ -101,13 +105,28 @@ public class Main extends Application {
 			case "registrar menu":
 				stage.setScene(registrarMenuScene);
 				break;
-			case "registrar rota":
-				stage.setScene(registrarRotaScene);
-				break;
-			case "registrar evento":
-				stage.setScene(registrarEventoScene);
-				break;
+
+//			case "registrar rota":
+//				stage.setScene(registrarRotaScene);
+//				break;
+//			case "registrar evento":
+//				stage.setScene(registrarEventoScene);
+//				break;
 				}
+	}
+	
+	public void sair(Stage stage) {
+		Alert alerta = new Alert(AlertType.CONFIRMATION);
+		alerta.setTitle("Sair");
+		alerta.setHeaderText("Você está prestes a fechar o programa!");
+		alerta.setContentText("Você realmente deseja fechar o sistema ?");
+		
+		if(alerta.showAndWait().get()== ButtonType.OK) {
+			System.out.println("Voce fechou o promgrama com êxito!");
+			stage.close();
+		}
+		
+		
 	}
 
 	public static void main(String[] args) {

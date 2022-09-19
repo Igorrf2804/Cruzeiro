@@ -1,7 +1,8 @@
 package cruzeiroModel;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Date;
+
 
 public class Evento {
 
@@ -9,7 +10,7 @@ public class Evento {
 	private String nome;
 	private String desc;
 	private Date data;
-	private Time hora;
+	private LocalTime hora;
 	private String faixaEtaria;
 	private double preco;
 	
@@ -19,7 +20,7 @@ public class Evento {
 	
 	
 
-	public Evento(String nome, String desc, Date data, Time hora, String faixaEtaria, double preco) {
+	public Evento(String nome, String desc, Date data, LocalTime hora, String faixaEtaria, double preco) {
 		super();
 		this.nome = nome;
 		this.desc = desc;
@@ -63,11 +64,11 @@ public class Evento {
 		this.data = data;
 	}
 
-	public Time getHora() {
+	public LocalTime getHora() {
 		return hora;
 	}
 
-	public void setHora(Time hora) {
+	public void setHora(LocalTime hora) {
 		this.hora = hora;
 	}
 
@@ -87,6 +88,8 @@ public class Evento {
 		this.preco = preco;
 	}
 	
-	
+	public String toString() {
+		return getNome() + " - " + getData() + "-" + getHora() + "- preço: " + "R$" +getPreco();
+	}
 	
 }

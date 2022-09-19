@@ -69,5 +69,9 @@ public class Menu {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
+	public String toString() {
+		return nome + " preço: " + getPreco();
+	}
 
 }

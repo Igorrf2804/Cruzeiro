@@ -17,8 +17,8 @@ public class PessoaDaoImpl implements PessoaDao {
 	private ResultSet rs;
 
 	@Override
-	public void salvarPessoa(Pessoa pessoa) throws SQLException {
-		String sql = "insert into pessoas(nome, idade, cpf, email, telefone) values(?, ?, ?, ?, ?)";
+	public Pessoa salvarPessoa(Pessoa pessoa) throws SQLException {
+		String sql = "insert into Pessoas(nome, idade, cpf, email, telefone) values(?, ?, ?, ?, ?)";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -40,12 +40,12 @@ public class PessoaDaoImpl implements PessoaDao {
 		} finally {
 			FabricaConexao.fecharConexao(conn, ps, rs);
 		}
-		
+		return pessoa;
 	}
 
 	@Override
 	public void alterarPessoa(Pessoa pessoa) throws SQLException {
-		String sql = "update pessoas set nome=?, idade=?, cpf=?, email=?, telefone=? where id=?";
+		String sql = "update Pessoas set nome=?, idade=?, cpf=?, email=?, telefone=? where id=?";
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql);
@@ -68,7 +68,7 @@ public class PessoaDaoImpl implements PessoaDao {
 
 	@Override
 	public void excluirPessoa(Integer id) throws SQLException {
-		String sql = "delete from pessoas where id=?";
+		String sql = "delete from Pessoas where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -87,7 +87,7 @@ public class PessoaDaoImpl implements PessoaDao {
 	@Override
 	public Pessoa pesquisarPorIdPessoa(Integer id) throws SQLException {
 		Pessoa pessoa = null;
-		String sql = "select * from pessoas where id=?";
+		String sql = "select * from Pessoas where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -117,7 +117,7 @@ public class PessoaDaoImpl implements PessoaDao {
 	public List<Pessoa> pesquisarTodasPessoas() throws SQLException {
 		List<Pessoa> pessoas = new ArrayList<>();
 		Pessoa pessoa;
-		String sql = "select * from pessoas";
+		String sql = "select * from Pessoas";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -147,12 +147,43 @@ public class PessoaDaoImpl implements PessoaDao {
 	public List<Pessoa> pesquisarPorNome(String nome) throws SQLException {
 		List<Pessoa> pessoas = new ArrayList<>();
 		Pessoa pessoa;
-		String sql = "select * from pessoas where nome like ?";
+		String sql = "select * from Pessoas where nome like ?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, "%" + nome + "%");
+			
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				pessoa = new Pessoa();
+				pessoa.setId(rs.getInt("id"));
+				pessoa.setNome(rs.getString("nome"));
+				pessoa.setIdade(rs.getInt("idade"));
+				pessoa.setCpf(rs.getString("cpf"));
+				pessoa.setEmail(rs.getString("email"));
+				pessoa.setTelefone(rs.getString("telefone"));
+				
+				pessoas.add(pessoa);
+			}
+		} catch (Exception e) {
+			System.out.println("Erro em pesquisar pessoas por nome " + e.getMessage());
+		} finally {
+			FabricaConexao.fecharConexao(conn, ps, rs);
+		}
+		return pessoas;
+	}
+	
+	@Override
+	public List<Pessoa> pesquisarPorCpf(String cpf) throws SQLException {
+		List<Pessoa> pessoas = new ArrayList<>();
+		Pessoa pessoa;
+		String sql = "select * from Pessoas where cpf like ?";
+		
+		try {
+			conn = FabricaConexao.abrirConexao();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" +cpf + "%");
 			
 			rs = ps.executeQuery();
 			while (rs.next()) {

@@ -28,10 +28,10 @@ public class ClienteDaoImpl implements ClienteDao {
 	public void alterar(Cliente cliente, Pessoa pessoa) throws SQLException {
 		String sql;
 		
-		if (pessoa.getIdade() <=17) 
-			sql = "update clientemenor set pacote=? where id=?";
+		if (pessoa.getIdade() <18) 
+			sql = "update ClienteMenor set pacote=? where id=?";
 		else
-			sql = "update clientes set pacote=?, total_a_pagar=?, senha=? where id=?";
+			sql = "update Clientes set pacote=?, total_a_pagar=?, senha=? where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -64,9 +64,9 @@ public class ClienteDaoImpl implements ClienteDao {
 		pessoaDao.excluirPessoa(cliente.getIdPessoa());
 		
 		if (idade<=17) 
-			sql = "delete from clientemenor where id=?";
+			sql = "delete from ClienteMenor where id=?";
 		else
-			sql = "delete from clientes where id=?";
+			sql = "delete from Clientes where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -87,9 +87,9 @@ public class ClienteDaoImpl implements ClienteDao {
 		String sql;
 		
 		if (idade<=17)
-			sql = "select * from clientemenor where fk_Pessoas_id=?";
+			sql = "select * from ClienteMenor where fk_Pessoas_id=?";
 		else
-			sql = "select * from clientes where fk_Pessoas_id=?";
+			sql = "select * from Clientes where fk_Pessoas_id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -98,7 +98,7 @@ public class ClienteDaoImpl implements ClienteDao {
 			
 			rs = ps.executeQuery();
 			
-			if (idade<=17) {
+			if (idade<=18) {
 				if (rs.next()) {
 					cliente = new Cliente();
 					cliente.setId(id);
@@ -115,7 +115,6 @@ public class ClienteDaoImpl implements ClienteDao {
 					cliente.setIdPessoa(rs.getInt("fk_Pessoas_id"));
 				}
 			}
-			
 		} catch (Exception e) {
 			System.out.println("Erro ao pesquisar cliente " + e.getMessage());
 		} finally {
@@ -128,7 +127,7 @@ public class ClienteDaoImpl implements ClienteDao {
 	public List<Cliente> pesquisarTudoCliente() throws SQLException {
 		List<Cliente> clientes = new ArrayList<>();
 		Cliente cliente;
-		String sql = "select * from clientes";
+		String sql = "select * from Clientes";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -157,7 +156,7 @@ public class ClienteDaoImpl implements ClienteDao {
 	public List<Cliente> pesquisarTudoClienteMenor() throws SQLException {
 		List<Cliente> clientes = new ArrayList<>();
 		Cliente cliente;
-		String sql = "select * from clientemenor";
+		String sql = "select * from ClienteMenor";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -181,8 +180,8 @@ public class ClienteDaoImpl implements ClienteDao {
 	}
 
 	public void pedirMenu(Cliente cliente, Menu menu, int quantidade) throws SQLException {
-		String sql = "update clientes set total_a_pagar=? where id=?";
-		cliente.setTotal(menu.getPreco()*quantidade);
+		String sql = "update Clientes set total_a_pagar=? where id=?";
+		cliente.setTotal((menu.getPreco()*quantidade)+cliente.getTotal());
 		menuDao = new MenuDaoImpl();
 		
 		try {
@@ -202,8 +201,8 @@ public class ClienteDaoImpl implements ClienteDao {
 	}
 	
 	public void pedirRota(Cliente cliente, Rota rota) throws SQLException {
-		String sql = "update clientes set total_a_pagar=? where id=?";
-		cliente.setTotal(rota.getPreco());
+		String sql = "update Clientes set total_a_pagar=? where id=?";
+		cliente.setTotal(rota.getPreco()+cliente.getTotal());
 		rotaDao = new RotaDaoImpl();
 		
 		try {
@@ -222,8 +221,8 @@ public class ClienteDaoImpl implements ClienteDao {
 	}
 	
 	public void participarEvento(Cliente cliente, Evento evento) throws SQLException {
-		String sql = "update clientes set total_a_pagar where id=?";
-		cliente.setTotal(evento.getPreco());
+		String sql = "update Clientes set total_a_pagar where id=?";
+		cliente.setTotal(evento.getPreco()+cliente.getTotal());
 		eventoDao = new EventoDaoImpl();
 		
 		try {
@@ -240,4 +239,5 @@ public class ClienteDaoImpl implements ClienteDao {
 			FabricaConexao.fecharConexao(conn, ps, rs);
 		}
 	}
+
 }

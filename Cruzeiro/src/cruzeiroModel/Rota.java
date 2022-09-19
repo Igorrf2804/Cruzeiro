@@ -1,14 +1,15 @@
 package cruzeiroModel;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Date;
+
 
 public class Rota {
 
 	private Integer id, idFuncionario;
 	private String local, rota;
 	private Date dataSaida, dataVolta;
-	private Time horaSaida, horaVolta;
+	private LocalTime horaSaida, horaVolta;
 	private double preco;
 	
 	public Rota() {
@@ -16,7 +17,7 @@ public class Rota {
 	}
 
 	public Rota(Integer idFuncionario, String local, String rota, Date dataSaida, Date dataVolta,
-			Time horaSaida, Time horaVolta, double preco) {
+			LocalTime horaSaida, LocalTime horaVolta, double preco) {
 		super();
 		this.idFuncionario = idFuncionario;
 		this.local = local;
@@ -76,19 +77,19 @@ public class Rota {
 		this.dataVolta = dataVolta;
 	}
 
-	public Time getHoraSaida() {
+	public LocalTime getHoraSaida() {
 		return horaSaida;
 	}
 
-	public void setHoraSaida(Time horaSaida) {
+	public void setHoraSaida(LocalTime horaSaida) {
 		this.horaSaida = horaSaida;
 	}
 
-	public Time getHoraVolta() {
+	public LocalTime getHoraVolta() {
 		return horaVolta;
 	}
 
-	public void setHoraVolta(Time horaVolta) {
+	public void setHoraVolta(LocalTime horaVolta) {
 		this.horaVolta = horaVolta;
 	}
 
@@ -98,5 +99,9 @@ public class Rota {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+	
+	public String toString() {
+		return "Local de destino: " + getLocal() + " - rota: " + getRota();  
 	}
 }

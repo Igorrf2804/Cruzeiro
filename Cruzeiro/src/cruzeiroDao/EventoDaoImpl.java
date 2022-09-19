@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,19 +17,25 @@ public class EventoDaoImpl implements EventoDao {
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
+	
+	private java.util.Date utilData;
+	private java.time.LocalTime localHora;
 
 	@Override
 	public void salvar(Evento evento) throws SQLException {
-		String sql = "insert into evento(nome, descricao, data, hora, faixa_etaria, preco) values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into Evento(nome, descricao, data, hora, faixa_etaria, preco) values(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
+			java.sql.Date data = new java.sql.Date(evento.getData().getTime());
+			java.sql.Time hora = Time.valueOf(evento.getHora());
+			
 			ps.setString(1, evento.getNome());
 			ps.setString(2, evento.getDesc());
-			ps.setDate(3, evento.getData());
-			ps.setTime(4, evento.getHora());
+			ps.setDate(3, data);
+			ps.setTime(4, hora);
 			ps.setString(5, evento.getFaixaEtaria());
 			ps.setDouble(6, evento.getPreco());
 			
@@ -44,16 +52,18 @@ public class EventoDaoImpl implements EventoDao {
 
 	@Override
 	public void alterar(Evento evento) throws SQLException {
-		String sql = "update evento set nome=?, descricao=?, data=?, hora=?, faixa_etaria=?, preco=? where id=?";
+		String sql = "update Evento set nome=?, descricao=?, data=?, hora=?, faixa_etaria=?, preco=? where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql);
+			java.sql.Date data = new java.sql.Date(evento.getData().getTime());
+			java.sql.Time hora = Time.valueOf(evento.getHora());
 			
 			ps.setString(1, evento.getNome());
 			ps.setString(2, evento.getDesc());
-			ps.setDate(3, evento.getData());
-			ps.setTime(4, evento.getHora());
+			ps.setDate(3, data);
+			ps.setTime(4, hora);
 			ps.setString(5, evento.getFaixaEtaria());
 			ps.setDouble(6, evento.getPreco());
 			ps.setInt(7, evento.getId());
@@ -68,7 +78,7 @@ public class EventoDaoImpl implements EventoDao {
 
 	@Override
 	public void excluir(Integer id) throws SQLException {
-		String sql = "delete from evento where id=?";
+		String sql = "delete from Evento where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -86,7 +96,7 @@ public class EventoDaoImpl implements EventoDao {
 	@Override
 	public Evento pesquisarPorId(Integer id) throws SQLException {
 		Evento evento = null;
-		String sql = "select * from evento where id=?";
+		String sql = "select * from Evento where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -99,8 +109,15 @@ public class EventoDaoImpl implements EventoDao {
 				evento.setId(id);
 				evento.setNome(rs.getString("nome"));
 				evento.setDesc(rs.getString("descricao"));
-				evento.setData(rs.getDate("data"));
-				evento.setHora(rs.getTime("hora"));
+				
+				java.sql.Date data = (rs.getDate("data"));
+				utilData = new java.util.Date(data.getTime());
+				evento.setData(utilData);
+				
+				Time hora = ((rs.getTime("hora")));
+				localHora = hora.toLocalTime();
+				evento.setHora(localHora);	
+				
 				evento.setFaixaEtaria(rs.getString("faixa_etaria"));
 				evento.setPreco(rs.getDouble("preco"));
 			}
@@ -116,7 +133,7 @@ public class EventoDaoImpl implements EventoDao {
 	public List<Evento> pesquisarTudo() throws SQLException {
 		List<Evento> eventos = new ArrayList<>();
 		Evento evento;
-		String sql = "select * from evento";
+		String sql = "select * from Evento";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -128,8 +145,15 @@ public class EventoDaoImpl implements EventoDao {
 				evento.setId(rs.getInt("id"));
 				evento.setNome(rs.getString("nome"));
 				evento.setDesc(rs.getString("descricao"));
-				evento.setData(rs.getDate("data"));
-				evento.setHora(rs.getTime("hora"));
+				
+				java.sql.Date data = (rs.getDate("data"));
+				utilData = new java.util.Date(data.getTime());
+				evento.setData(utilData);
+				
+				Time hora = ((rs.getTime("hora")));
+				localHora = hora.toLocalTime();
+				evento.setHora(localHora);
+				
 				evento.setFaixaEtaria(rs.getString("faixa_etaria"));
 				evento.setPreco(rs.getDouble("preco"));
 				

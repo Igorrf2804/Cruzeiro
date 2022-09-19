@@ -6,16 +6,19 @@ public class Funcionario {
 	private Integer id, idPessoa;
 	private String endereco;
 	private String senha;
+	private String login;
+	private Pessoa pessoa;
 	
 	public Funcionario() {
 		
 	}
 
-	public Funcionario(Integer idPessoa, String endereco, String senha) {
+	public Funcionario(Integer idPessoa, String endereco, String senha, String login) {
 		super();
 		this.idPessoa = idPessoa;
 		this.endereco = endereco;
 		this.senha = senha;
+		this.login = login;
 	}
 
 	public Integer getId() {
@@ -49,4 +52,28 @@ public class Funcionario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public String getLogin() {
+		return login;
+	}
+	
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	public String toString() {
+		if (pessoa!=null)
+			return pessoa.getNome() + " - cpf:" + pessoa.getCpf() + " - idade:" + pessoa.getIdade();
+		else
+			return String.valueOf(getId());
+	}
+	
 }

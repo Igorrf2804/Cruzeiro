@@ -18,7 +18,7 @@ public class MenuDaoImpl implements MenuDao {
 	
 	@Override
 	public void salvar(Menu menu) throws SQLException {
-		String sql = "insert into menu(tipo, nome, descricao, ingredientes, preco) values(?, ?, ?, ?, ?)";
+		String sql = "insert into Menu(tipo, nome, descricao, ingredientes, preco) values(?, ?, ?, ?, ?)";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -44,7 +44,7 @@ public class MenuDaoImpl implements MenuDao {
 
 	@Override
 	public void alterar(Menu menu) throws SQLException {
-		String sql = "update menu set tipo=?, nome=?, descricao=?, ingredientes=?, preco=? where id=?";
+		String sql = "update Menu set tipo=?, nome=?, descricao=?, ingredientes=?, preco=? where id=?";
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class MenuDaoImpl implements MenuDao {
 
 	@Override
 	public void excluir(Integer id) throws SQLException {
-		String sql = "delete from menu where id=?";
+		String sql = "delete from Menu where id=?";
 		try {
 			conn = FabricaConexao.abrirConexao();
 			ps = conn.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class MenuDaoImpl implements MenuDao {
 	@Override
 	public Menu pesquisarPorId(Integer id) throws SQLException {
 		Menu menu = null;
-		String sql = "select * from menu where id=?";
+		String sql = "select * from Menu where id=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -113,7 +113,7 @@ public class MenuDaoImpl implements MenuDao {
 	public List<Menu> pesquisarTudo() throws SQLException {
 		List<Menu> menuCompleto = new ArrayList<>();
 		Menu menu;
-		String sql = "select * from menu";
+		String sql = "select * from Menu";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -143,7 +143,7 @@ public class MenuDaoImpl implements MenuDao {
 	public List<Menu> pesquisarPorTipo(Integer opcao) throws SQLException {
 		List<Menu> menuPesquisado = new ArrayList<>();
 		Menu menu;
-		String sql = "select * from menu where tipo=?";
+		String sql = "select * from Menu where tipo=?";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();
@@ -171,7 +171,7 @@ public class MenuDaoImpl implements MenuDao {
 	}
 	
 	public void registrarPedido(Integer idCliente, Integer idMenu, int quantidade) throws SQLException {
-		String sql = "insert into consome(fk_Clientes_id, fk_Menu_id, quantidade) values(?, ?, ?)";
+		String sql = "insert into Consome(fk_Clientes_id, fk_Menu_id, quantidade) values(?, ?, ?)";
 		
 		try {
 			conn = FabricaConexao.abrirConexao();

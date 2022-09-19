@@ -5,17 +5,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 public class FabricaConexao {
 	
-	public static Connection abrirConexao() throws SQLException {
+	public static Connection abrirConexao() throws SQLException  {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			 return DriverManager.getConnection("jdbc:mysql://localhost:3306/blue_route?useTimezone=true&serverTimezone=UTC", "root", "c6-alN6zd");
+			Class.forName("com.mysql.jdbc.Driver");
+			 return DriverManager.getConnection("jdbc:mysql://cruzeiro_db.mysql.dbaas.com.br/cruzeiro_db?autoReconnect=true&useSSL=false", "cruzeiro_db", "MyyLeqIu@DiX04");
 		} catch (ClassNotFoundException e) {
-			System.out.println("Erro ao conectar com Banco de Dados");
+			System.out.println("Erro ao conectar com Banco de Dados" + e.getMessage());
 		}
 		return null;
 	}
+//	jdbc:mysql://localhost:3306/cruzeiro_db
 	
 	public static void fecharConexao(Connection conn, PreparedStatement psmt, ResultSet rs) throws SQLException {
         
@@ -27,3 +29,4 @@ public class FabricaConexao {
     }
 
 }
+	

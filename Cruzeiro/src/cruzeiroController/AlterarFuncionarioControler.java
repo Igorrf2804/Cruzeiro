@@ -2,9 +2,6 @@ package cruzeiroController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -24,23 +21,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class RegistrarFuncionarioControler extends baseControler implements Initializable {
-	
-	@FXML
-	private TextField txtNome, txtCpf, txtEmail, txtTel, txtIdade, txtEndereco, txtLogin, txtSenha;
-	
-	private Funcionario funcionario = new Funcionario();
-	private FuncionarioDao funcionarioDao = new FuncionarioDaoImpl();
-	private Pessoa pessoa = new Pessoa();
-	private PessoaDao pessoaDao = new PessoaDaoImpl();
+public class AlterarFuncionarioControler extends baseControler implements Initializable {
 	
 	private Parent root;
 	private Stage stage;
 	private Scene scene;
 	
 	@FXML
-	public void onBtnClickRegistrar(ActionEvent e) throws SQLException {
-		registrar();
+	private TextField txtNome, txtCpf, txtEmail, txtTel, txtIdade, txtEndereco, txtLogin, txtSenha;
+	
+	private Funcionario funcionario;
+	private Pessoa pessoa;
+	private FuncionarioDao funcionarioDao = new FuncionarioDaoImpl();
+	private PessoaDao pessoaDao = new PessoaDaoImpl();
+	
+	@FXML
+	public void onBtnClickAlterar(ActionEvent e) throws SQLException {
+		alterar();
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/cruzeiroView/GerenciarFuncionario.fxml"));
 			root = loader.load();
@@ -53,15 +50,30 @@ public class RegistrarFuncionarioControler extends baseControler implements Init
 			System.out.println("Erro ao voltar para página de funcionarios " + e2.getMessage());
 		}
 	}
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	public void registrar() throws SQLException {
-		Pessoa p;
+	public void setObjetos(Funcionario funcionario) {
+		this.funcionario = funcionario;
+		pessoa = funcionario.getPessoa();
+	}
+	
+	public void setCampos() {
+		txtNome.setText(pessoa.getNome());
+		txtCpf.setText(pessoa.getCpf());
+		txtEmail.setText(pessoa.getEmail());
+		txtTel.setText(pessoa.getTelefone());
+		txtIdade.setText(String.valueOf(pessoa.getIdade()));
+		txtEndereco.setText(funcionario.getEndereco());
+		txtLogin.setText(funcionario.getLogin());
+		txtSenha.setText(funcionario.getSenha());
+	}
+	
+	public void alterar() throws SQLException {
 		pessoa.setNome(txtNome.getText());
 		pessoa.setCpf(txtCpf.getText());
 		pessoa.setEmail(txtEmail.getText());
@@ -70,9 +82,7 @@ public class RegistrarFuncionarioControler extends baseControler implements Init
 		funcionario.setLogin(txtLogin.getText());
 		funcionario.setEndereco(txtEndereco.getText());
 		funcionario.setSenha(txtSenha.getText());
-		p = pessoaDao.salvarPessoa(pessoa);
-		funcionario.setIdPessoa(p.getId());
-		funcionarioDao.salvar(funcionario);
+		pessoaDao.alterarPessoa(pessoa);
+		funcionarioDao.alterar(funcionario);
 	}
-
 }

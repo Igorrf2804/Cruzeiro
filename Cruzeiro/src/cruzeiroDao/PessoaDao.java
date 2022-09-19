@@ -7,7 +7,7 @@ import cruzeiroModel.Pessoa;
 
 public interface PessoaDao {
 
-	void salvarPessoa(Pessoa pessoa) throws SQLException;
+	Pessoa salvarPessoa(Pessoa pessoa) throws SQLException;
 	
 	void alterarPessoa(Pessoa pessoa) throws SQLException;
 	
@@ -18,5 +18,7 @@ public interface PessoaDao {
 	List<Pessoa> pesquisarTodasPessoas() throws SQLException;
 	
 	List<Pessoa> pesquisarPorNome(String nome) throws SQLException;
+	
+	List<Pessoa> pesquisarPorCpf(String cpf) throws SQLException;
 	
 }

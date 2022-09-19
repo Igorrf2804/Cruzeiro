@@ -7,7 +7,7 @@ import cruzeiroModel.Rota;
 
 public interface RotaDao {
 	
-	void salvar(Rota rota) throws SQLException;
+//	void salvar(Rota rota) throws SQLException;
 	
 	void alterar(Rota rota) throws SQLException;
 	
@@ -16,6 +16,8 @@ public interface RotaDao {
 	Rota pesquisarPorId(Integer id) throws SQLException;
 	
 //	List<Rota> pesquisarLocar(String local) throws SQLException;
+	
+	List<Rota> pesquisarTudo() throws SQLException;
 	
 	void registrarPedido(Integer idCliente, Integer idRota) throws SQLException;
 

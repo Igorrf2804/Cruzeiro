@@ -7,8 +7,7 @@ public class Cliente {
 	private int pacote;
 	private String senha;
 	private double total;
-	
-	
+	private Pessoa pessoa;
 	
 	public Cliente() {
 
@@ -21,7 +20,7 @@ public class Cliente {
 		this.senha = senha;
 		this.total = total;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -52,7 +51,20 @@ public class Cliente {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	
-	
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public String toString() {
+		if (pessoa!=null)
+			return pessoa.getNome() + " - cpf:" + pessoa.getCpf() + " - idade:" + pessoa.getIdade();
+		else
+			return String.valueOf(getId());
+	}
 
 }
