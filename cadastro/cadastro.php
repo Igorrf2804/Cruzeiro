@@ -1,8 +1,8 @@
 <?php
 
-$servername = "cruzeiro_db.mysql.dbaas.com.br";
+$servername = "";
 $username = "cruzeiro_db";
-$password = "MyyLeqIu@DiX04";
+$password = "";
 $dbname = "cruzeiro_db";
 
 // Pegando o input dos dados
