@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="js/script.js"></script>
+    <title>FORM | CADASTRO</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/img/ship-29697.svg" alt="">
+        </div>
+        <div class="form">
+            <form method="post" action="cadastro.php">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastro de pessoas</h1>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="name">Nome</label>
+                        <input id="name" type="text" name="name" placeholder="Nome completo" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="date">Data de nascimento</label>
+                        <input id="date" type="date" name="date" placeholder="Data de nascimento" onfocusout="calculaIdade()" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="cpf">CPF</label>
+                        <input id="cpf" type="text" name="cpf" placeholder="Digite o CPF" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="telefone">Telefone de contato</label>
+                        <input id="telefone" type="text" name="telefone" placeholder="(xx) xxxx-xxxx" required>
+                    </div>
+                    <div class="input-box-idade">
+                        <label id="labelidade" for="idade"></label>
+                        <input id="idade" type="number" name="idade">
+                    </div>
+                    <div class="input-box-name">
+                        <label id="labelName" for="name">CPF do responsável</label>
+                        <input id="cpfResp" type="text" name="cpfResp" placeholder="CPF do responsável">
+                    </div>
+
+                    <div class="input-box-number">
+                        <label id="labelResp" for="number">Contato do responsável</label>
+                        <input id="numberResp" type="tel" name="numberResp" placeholder="(xx) xxxx-xxxx">
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button type="submit"><a>CADASTRAR</a> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

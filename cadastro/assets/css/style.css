@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2a79aa;
+}
+
+.container {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+.form-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeaf78;
+    padding: 1rem;
+}
+
+.form-image img {
+    width: 31rem;
+}
+
+.form {
+    width: 50%;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+}
+
+.form-header {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+}
+
+.login-button button {
+    border: none;
+    background-color: #2a79aa;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button button:hover {
+    background-color: #2a79aa;
+}
+
+.login-button button a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+
+.form-header h1::after {
+    margin-bottom: 4rem;
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #2a79aa;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.input-box-name, .input-box-number, .input-box-idade{
+    display: none;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+
+.ativo {
+    display: flex !important;
+}
+
+.input-box input, .input-box-name input, .input-box-number input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #524f4f3f;
+    font-size: 0.8rem;
+}
+
+.input-box input:hover {
+    background-color: #df93301c;
+}
+
+.input-box input:focus-visible {
+    outline: 1px solid #df93301c;
+}
+
+.input-box input:disabled {
+    background-color: #4b4b4b7c;
+}
+
+.continue-button button {
+    width: 100%;
+    margin-top: 0rem;
+    border: none;
+    background-color: #2a79aa;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button button:hover {
+    background-color: #2a79aa;
+}
+
+.continue-button button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+@media screen and (max-width: 557px){
+
+    h1 {
+        font-size: 1.4em;
+        margin-block-start: 0.1em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+    form {
+        display: block;
+        font-size: 1rm;
+        padding: 0rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+
+    .form-header {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-header h1::after {
+        display: none;
+    }
+
+    .input-group {
+        display: block;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    .continue-button button {
+        width: 100%;
+        margin-top: 1px;
+        border: none;
+        background-color: #2a79aa;
+        padding: 0.62rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }   
+
+    .input-box input {
+        margin: 0rem;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px #524f4f3f;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1337px) {
+    .form-image {
+        display: none;
+    }
+    .container {
+        width: 100%;
+    }
+    .form {
+        width: 100%;
+    }
+    continue-button button {
+        width: 50%;
+        margin-top: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 1064px) {
+    .container {
+        width: 90%;
+        height: 98%;
+    }
+    .form {
+        width: 100%;
+    }
+    .continue-button button {
+        width: 100%;
+        margin-top: 1px;
+        border: none;
+        background-color: #2a79aa;
+        padding: 0.62rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }   
+    
+    .form-header {
+        margin-bottom: 0rem;
+        justify-content: space-between;
+    }
+    
+    .gender-inputs {
+        margin-top: 2rem;
+    }
+    .gender-group {
+        flex-direction: column;
+    }
+    .gender-title h6 {
+        margin: 0;
+    }
+    .gender-input {
+        margin-top: 0.5rem;
+    }
+
+}
